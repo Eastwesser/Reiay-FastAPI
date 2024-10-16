@@ -1,7 +1,6 @@
-from datetime import datetime
 from symtable import Symbol
 
-from sqlalchemy import Column, Integer, String, ForeignKey, DateTime, BigInteger, MetaData
+from sqlalchemy import Column, Integer, String, ForeignKey, BigInteger, MetaData
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine, async_sessionmaker
 from sqlalchemy.orm import relationship, Mapped, mapped_column
 
@@ -21,14 +20,12 @@ class Chat(Base):
 
 class Message(Base):
     __tablename__ = 'messages'
-    id = Column(Integer, primary_key=True, index=True)
-    content = Column(String)
-    timestamp = Column(DateTime, default=datetime.utcnow)
-    chat_id = Column(Integer, ForeignKey("chats.id"))
-    user_id = Column(Integer, ForeignKey("users.id"))
-
-    chat = relationship("Chat")
-    user = relationship("User")
+    id: Mapped[int] = mapped_column(primary_key=True)
+    content: Mapped[str] = mapped_column(String)
+    chat_id: Mapped[int] = mapped_column(ForeignKey("chat.chat"))
+    user_id: Mapped[int] = mapped_column(ForeignKey("user.user"))
+    chat: Mapped["Chat"] = relationship(back_populates="chat")
+    user: Mapped["User"] = relationship(back_populates="user")
 
 
 class User(Base):
