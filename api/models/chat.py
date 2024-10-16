@@ -1,6 +1,6 @@
 from symtable import Symbol
 
-from sqlalchemy import Column, Integer, String, ForeignKey, BigInteger, MetaData
+from sqlalchemy import String, ForeignKey, BigInteger, MetaData
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine, async_sessionmaker
 from sqlalchemy.orm import relationship, Mapped, mapped_column
 
@@ -14,8 +14,8 @@ async_session = async_sessionmaker(engine, class_=AsyncSession)
 
 class Chat(Base):
     __tablename__ = 'chats'
-    id = Column(Integer, primary_key=True, index=True)
-    name = Column(String, index=True)
+    id: Mapped[int] = mapped_column(primary_key=True)
+    name: Mapped[str] = mapped_column(String)
 
 
 class Message(Base):
