@@ -1,8 +1,10 @@
+# Распознавание речи
 import speech_recognition as sr
 
 
+# Функция для преобразования аудио в текст
 def transcribe_audio(file_path: str) -> str:
-    """Преобразование аудио в текст с помощью Google API."""
+    """Использует Google API для преобразования аудио в текст."""
     recognizer = sr.Recognizer()
     try:
         with sr.AudioFile(file_path) as source:

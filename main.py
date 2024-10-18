@@ -5,7 +5,7 @@ from sqlalchemy.orm import sessionmaker
 from api.api_v1.api import api_router
 from api.database.db_configs import engine
 
-# Настройки базы данных
+# Создание сессии базы данных
 SessionLocal = sessionmaker(
     autocommit=False,
     autoflush=False,
@@ -14,10 +14,10 @@ SessionLocal = sessionmaker(
     expire_on_commit=False,
 )
 
-# Инициализация FastAPI
+# Инициализация приложения FastAPI
 app = FastAPI()
 
-# Подключение роутеров
+# Подключение роутеров из api_v1
 app.include_router(api_router)
 
 
@@ -30,12 +30,13 @@ async def get_db():
 # WebSocket для чатов
 @app.websocket("/ws/{chat_id}")
 async def websocket_endpoint(websocket: WebSocket, chat_id: int):
+    """WebSocket для обработки сообщений в чатах."""
     await websocket.accept()
     try:
         while True:
-            data = await websocket.receive_text()
-            await websocket.send_text(f"Message from {chat_id}: {data}")
+            data = await websocket.receive_text()  # Получение сообщения
+            await websocket.send_text(f"Message from {chat_id}: {data}")  # Отправка ответа
     except Exception as e:
         print(f"Error: {e}")
     finally:
-        await websocket.close()
+        await websocket.close()  # Закрытие WebSocket

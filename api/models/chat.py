@@ -1,3 +1,5 @@
+# Модели для чатов и сообщений
+
 from sqlalchemy import String, ForeignKey
 from sqlalchemy.orm import relationship, Mapped, mapped_column
 
