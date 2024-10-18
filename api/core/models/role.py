@@ -2,7 +2,7 @@
 from sqlalchemy import String
 from sqlalchemy.orm import Mapped, mapped_column
 
-from api.database.db_configs import Base
+from core.database.db_configs import Base
 
 
 # Модель для ролей

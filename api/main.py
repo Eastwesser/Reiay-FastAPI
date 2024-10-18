@@ -3,7 +3,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import sessionmaker
 
 from api.api_v1.api import api_router
-from api.database.db_configs import engine
+from core.database.db_configs import engine
 
 # Создание сессии базы данных
 SessionLocal = sessionmaker(
@@ -40,3 +40,15 @@ async def websocket_endpoint(websocket: WebSocket, chat_id: int):
         print(f"Error: {e}")
     finally:
         await websocket.close()  # Закрытие WebSocket
+
+
+# Запуск приложения
+if __name__ == "__main__":
+    import uvicorn
+
+    uvicorn.run(
+        "main:app",
+        host="0.0.0.0",
+        port=8000,
+        reload=True,
+    )

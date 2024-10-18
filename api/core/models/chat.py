@@ -2,7 +2,7 @@
 from sqlalchemy import String, ForeignKey
 from sqlalchemy.orm import relationship, Mapped, mapped_column
 
-from api.database.db_configs import Base
+from core.database.db_configs import Base
 
 
 class Chat(Base):

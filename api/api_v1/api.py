@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 
-from api.routers import users, roles  # Импортируем роутеры для пользователей и ролей
+from api_v1.views import roles, users
 
 # Создаем основной роутер для API V1
 api_router = APIRouter()

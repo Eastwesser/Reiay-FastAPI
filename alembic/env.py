@@ -3,7 +3,7 @@ from logging.config import fileConfig
 from alembic import context
 from sqlalchemy import engine_from_config, pool
 
-from api.database.db_configs import Base  # Импортируем метаданные
+from core.database.db_configs import Base  # Импортируем метаданные
 
 # Настройка логирования для Alembic
 config = context.config
