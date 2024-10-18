@@ -1,7 +1,12 @@
+import os
+import sys
 from logging.config import fileConfig
 
 from alembic import context
 from sqlalchemy import engine_from_config, pool
+
+# Добавляем путь к корневой директории проекта
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'api'))
 
 from core.database.db_configs import Base  # Импортируем метаданные
 
@@ -22,7 +27,6 @@ def run_migrations_offline():
         context.run_migrations()
 
 
-# Функция для онлайн миграции
 def run_migrations_online():
     connectable = engine_from_config(
         config.get_section(config.config_ini_section),

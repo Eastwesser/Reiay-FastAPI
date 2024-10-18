@@ -1,3 +1,5 @@
+from typing import Sequence
+
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -14,7 +16,7 @@ async def create_role(db: AsyncSession, role: RoleCreate) -> Role:
     return db_role
 
 
-async def get_all_roles(db: AsyncSession) -> list[Role]:
+async def get_all_roles(db: AsyncSession) -> Sequence[Role]:
     """Получение списка всех ролей."""
     stmt = select(Role)
     result = await db.execute(stmt)

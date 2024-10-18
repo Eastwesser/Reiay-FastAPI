@@ -3,6 +3,7 @@ from sqlalchemy import String, ForeignKey
 from sqlalchemy.orm import relationship, Mapped, mapped_column
 
 from core.database.db_configs import Base
+from core.models.user import User
 
 
 class Chat(Base):
@@ -19,11 +20,3 @@ class Message(Base):
     user_id: Mapped[int] = mapped_column(ForeignKey("users.id"))
     chat: Mapped["Chat"] = relationship(back_populates="messages")
     user: Mapped["User"] = relationship(back_populates="messages")
-
-
-class User(Base):
-    __tablename__ = 'users'
-    id: Mapped[int] = mapped_column(primary_key=True)
-    username: Mapped[str] = mapped_column(String, unique=True)
-    hashed_password: Mapped[str] = mapped_column(String)
-    messages: Mapped[list["Message"]] = relationship("Message", back_populates="user")
