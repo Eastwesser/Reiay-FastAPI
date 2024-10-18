@@ -1,6 +1,6 @@
-from api.redis import Redis
+from redis import Redis
 
-# Настройка подключения к Redis
+# Подключение к Redis
 redis_client = Redis(host='localhost', port=6379, db=0)
 
 
