@@ -1,5 +1,4 @@
 # Схемы для ролей
-
 from pydantic import BaseModel
 
 

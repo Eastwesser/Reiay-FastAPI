@@ -17,8 +17,8 @@ SessionLocal = sessionmaker(
 # Инициализация приложения FastAPI
 app = FastAPI()
 
-# Подключение роутеров из api_v1
-app.include_router(api_router)
+# Подключаем роуты с префиксом /api/v1
+app.include_router(api_router, prefix="/api/v1")
 
 
 # Зависимость для получения сессии базы данных

@@ -1,5 +1,4 @@
 # Схемы для пользователей
-
 from pydantic import BaseModel
 
 

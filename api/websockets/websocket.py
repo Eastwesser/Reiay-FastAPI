@@ -1,5 +1,4 @@
 # WebSocket для обработки сообщений
-
 from fastapi import WebSocket, WebSocketDisconnect
 
 from main import app
