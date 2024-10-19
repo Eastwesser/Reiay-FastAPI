@@ -30,7 +30,7 @@ pip install -r requirements.txt
 ```bash
 DB_LOGIN=<ваш логин>
 DB_PASS=<ваш пароль>
-DB_HOST=localhost:5432
+DB_HOST=localhost
 DB_NAME=reiay
 ```
 
