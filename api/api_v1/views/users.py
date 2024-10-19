@@ -1,10 +1,10 @@
 from fastapi import APIRouter, HTTPException, Depends
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from api_v1.crud.users import create_user, get_user_by_username, update_user
-from api_v1.schemas.user import UserOut, UserCreate
-from core.database.db_configs import get_db
-from security.bcrypt import verify_password
+from api.api_v1.crud.users import create_user, get_user_by_username, update_user
+from api.api_v1.schemas.user import UserOut, UserCreate
+from api.core.database.db_configs import get_db
+from api.security.bcrypt import verify_password
 
 router = APIRouter()
 

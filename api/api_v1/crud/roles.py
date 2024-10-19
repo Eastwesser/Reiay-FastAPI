@@ -3,8 +3,8 @@ from typing import Sequence
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from api_v1.schemas.role import RoleCreate
-from core.models.role import Role
+from api.api_v1.schemas.role import RoleCreate
+from api.core.models.role import Role
 
 
 async def create_role(db: AsyncSession, role: RoleCreate) -> Role:

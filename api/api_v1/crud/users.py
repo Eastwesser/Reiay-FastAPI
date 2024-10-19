@@ -1,8 +1,8 @@
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
 
-from api_v1.schemas.user import UserCreate
-from core.models.chat import User
+from api.api_v1.schemas.user import UserCreate
+from api.core.models.chat import User
 
 
 async def create_user(db: AsyncSession, user: UserCreate) -> User:

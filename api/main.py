@@ -3,7 +3,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import sessionmaker
 
 from api.api_v1.api import api_router
-from core.database.db_configs import engine
+from api.core.database.db_configs import engine
 
 # Создание сессии базы данных
 SessionLocal = sessionmaker(

@@ -30,9 +30,8 @@ pip install -r requirements.txt
 ```bash
 DB_LOGIN=<ваш логин>
 DB_PASS=<ваш пароль>
-DB_HOST=localhost
-DB_NAME=reiay_main
-SECRET_KEY=<ваш секретный ключ>
+DB_HOST=localhost:5432
+DB_NAME=reiay
 ```
 
 4. Запустите Alembic для миграций:
@@ -44,13 +43,12 @@ alembic upgrade head
 5. Запустите приложение:
 
 ```bash
-uvicorn main:app --reload
+uvicorn api.main:app --reload
 ```
 
-6. Примеры запросов:
+6. Доступ к Swagger:
 
 ```bash
-GET http://127.0.0.1:8000/api/v1/roles/
-POST http://127.0.0.1:8000/api/v1/users/register
+http://127.0.0.1:8000/docs
 
 ```
