@@ -1,5 +1,3 @@
-from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy.future import select
 from typing import Optional, Sequence
 
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -25,11 +23,15 @@ async def create_user(
 async def get_user_by_username(
         session: AsyncSession,
         username: str,
-) -> User:
+) -> Optional[User]:
     """Получение пользователя по имени."""
-    stmt = select(User).filter(User.username == username)
-    result = await db.execute(stmt)
-    return result.scalar_one_or_none()
+    return await session.get(User, username)
+
+
+async def get_all_users(session: AsyncSession) -> Sequence[User]:
+    stmt = select(User)
+    result = await session.execute(stmt)
+    return result.scalars().all()
 
 
 async def update_user(db: AsyncSession, user_id: int, new_data: UserCreate) -> User:
