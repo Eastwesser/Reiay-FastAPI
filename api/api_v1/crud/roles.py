@@ -11,7 +11,6 @@ async def create_role(
         session: AsyncSession,
         role: RoleCreate,
 ) -> Role:
-    """Создание новой роли."""
     db_role = Role(**role.model_dump())
     session.add(db_role)
     await session.commit()
