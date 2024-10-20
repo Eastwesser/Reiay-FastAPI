@@ -1,4 +1,6 @@
 # Схемы для пользователей
+from typing import Optional
+
 from pydantic import BaseModel
 
 
@@ -16,3 +18,8 @@ class UserOut(BaseModel):
     # Настройка Pydantic для работы с SQLAlchemy ORM
     class Config:
         from_attributes = True
+
+
+class UserUpdate(BaseModel):
+    username: Optional[str] = None
+    password: Optional[str] = None
