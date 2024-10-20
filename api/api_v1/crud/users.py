@@ -1,20 +1,31 @@
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
+from typing import Optional, Sequence
+
+from sqlalchemy.ext.asyncio import AsyncSession
+from sqlalchemy.future import select
+
 
 from api.api_v1.schemas.user import UserCreate
 from api.core.models.chat import User
 
 
-async def create_user(db: AsyncSession, user: UserCreate) -> User:
+async def create_user(
+        session: AsyncSession,
+        user: UserCreate,
+) -> User:
     """Создание нового пользователя."""
-    db_user = User(username=user.username, hashed_password=user.hashed_password)
-    db.add(db_user)
-    await db.commit()
-    await db.refresh(db_user)
+    db_user = User(**user.model_dump())
+    session.add(db_user)
+    await session.commit()
+    await session.refresh(db_user)
     return db_user
 
 
-async def get_user_by_username(db: AsyncSession, username: str) -> User:
+async def get_user_by_username(
+        session: AsyncSession,
+        username: str,
+) -> User:
     """Получение пользователя по имени."""
     stmt = select(User).filter(User.username == username)
     result = await db.execute(stmt)
