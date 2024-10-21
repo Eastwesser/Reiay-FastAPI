@@ -6,7 +6,7 @@ from starlette.middleware.base import BaseHTTPMiddleware
 
 from api.core.db_helper import engine
 from api.i18n.i18n_helper import set_language, translate
-from reiay.routers.api_routers import api_router
+from api.reiay.routers.api_routers import api_router
 
 
 class LocaleMiddleware(BaseHTTPMiddleware):
