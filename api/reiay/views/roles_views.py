@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from api.api_reiay.crud.roles_crud import create_role, get_all_roles
-from api.api_reiay.schemas.roles_schemas import RoleCreate
+from api.reiay.crud.roles_crud import create_role, get_all_roles
+from api.reiay.schemas.roles_schemas import RoleCreate
 from core.db_helper import get_db
 
 router = APIRouter()

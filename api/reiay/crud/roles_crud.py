@@ -3,7 +3,7 @@ from typing import Sequence
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from api.api_reiay.schemas.roles_schemas import RoleCreate
+from api.reiay.schemas.roles_schemas import RoleCreate
 from core.models import Role
 
 

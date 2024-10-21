@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 
-from api.api_reiay.views import (
+from api.reiay.views import (
     roles_views,
     users_views,
     chats_views,
@@ -8,7 +8,7 @@ from api.api_reiay.views import (
     rooms_views,
 )
 
-# Основной роутер для api_reiay
+# Основной роутер для reiay
 api_router = APIRouter()
 
 # Маршруты для пользователей, ролей и т.д.

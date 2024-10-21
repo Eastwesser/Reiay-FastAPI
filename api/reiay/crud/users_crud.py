@@ -6,7 +6,7 @@ from typing import (
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
 
-from api.api_reiay.schemas.users_schemas import (
+from api.reiay.schemas.users_schemas import (
     UserCreate,
     UserUpdate,
 )

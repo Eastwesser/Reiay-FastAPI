@@ -3,7 +3,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import sessionmaker
 
 from core.db_helper import engine
-from api_reiay.routers.api_routers import api_router
+from reiay.routers.api_routers import api_router
 
 # Инициализация приложения FastAPI
 app = FastAPI()
