@@ -1,4 +1,4 @@
-# Reiai-FastAPI
+# Reiay-FastAPI
 
 ## Описание
 
@@ -16,7 +16,7 @@
 1. Клонируйте репозиторий:
 
 ```bash
-git clone https://github.com/Eastwesser/Reiai-FastAPI.git
+git clone https://github.com/Eastwesser/Reiay-FastAPI.git
 ```
 
 2. Установите зависимости:
