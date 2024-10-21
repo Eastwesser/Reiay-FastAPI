@@ -1,11 +1,9 @@
-# WebSocket для обработки сообщений
 from fastapi import WebSocket, WebSocketDisconnect
 
 from main import app
 from redis.redis import save_message_in_cache
 
 
-# WebSocket для чатов
 @app.websocket("/ws/{chat_id}")
 async def websocket_endpoint(websocket: WebSocket, chat_id: int):
     await websocket.accept()
@@ -17,3 +15,5 @@ async def websocket_endpoint(websocket: WebSocket, chat_id: int):
             save_message_in_cache(chat_id, data)  # Сохраняем сообщение в Redis
     except WebSocketDisconnect:
         print(f"Client disconnected from chat {chat_id}")
+    finally:
+        await websocket.close()  # Закрытие WebSocket

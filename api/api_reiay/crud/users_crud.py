@@ -6,11 +6,11 @@ from typing import (
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
 
-from api.api_v1.schemas.user import (
+from api.api_reiay.schemas.users_schemas import (
     UserCreate,
     UserUpdate,
 )
-from api.core.models.chat import User
+from core.models import User
 
 
 # CREATE

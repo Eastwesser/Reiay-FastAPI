@@ -1,4 +1,3 @@
-# Схемы для ролей
 from pydantic import BaseModel
 
 
@@ -6,6 +5,5 @@ from pydantic import BaseModel
 class RoleCreate(BaseModel):
     name: str
 
-    # Настройка Pydantic для работы с SQLAlchemy ORM
     class Config:
         from_attributes = True

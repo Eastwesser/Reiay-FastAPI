@@ -23,7 +23,11 @@ Base = declarative_base()
 class DatabaseHelper:
     def __init__(self, url: str, echo: bool = False):
         self.engine = create_async_engine(url, echo=echo)
-        self.session_factory = async_sessionmaker(bind=self.engine, autoflush=False)
+        self.session_factory = async_sessionmaker(
+            bind=self.engine,
+            autoflush=False,
+            autocommit=False,
+        )
 
     # Функция-зависимость для работы с сессиями
     async def session_dependency(self):
@@ -32,7 +36,10 @@ class DatabaseHelper:
 
 
 # Инициализация DatabaseHelper
-db_helper = DatabaseHelper(url=DATABASE_URL, echo=True)
+db_helper = DatabaseHelper(
+    url=DATABASE_URL,
+    echo=True,
+)
 
 
 # Зависимость для FastAPI для получения сессии базы данных

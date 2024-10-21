@@ -9,7 +9,7 @@ from sqlalchemy.ext.asyncio import create_async_engine
 # Добавляем корневую директорию проекта в sys.path
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
-from api.core.database.db_configs import Base, DATABASE_URL
+from core.db_helper import Base, DATABASE_URL
 
 # Создаем асинхронный движок подключения к базе данных
 connectable = create_async_engine(DATABASE_URL, echo=True)
