@@ -1,0 +1,5 @@
+msgid "greeting.hello"
+msgstr "Привет"
+
+msgid "greeting.bye"
+msgstr "До свидания"
