@@ -17,10 +17,10 @@ SessionLocal = sessionmaker(
     expire_on_commit=False,
 )
 
-# Подключаем роуты с префиксом /api/reiai
+# Подключаем роуты с префиксом /api/reiay
 app.include_router(
     api_router,
-    prefix="/api/reiai",
+    prefix="/api/reiay",
     tags=["reiai"],
 )
 
