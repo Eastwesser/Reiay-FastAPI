@@ -4,7 +4,7 @@ from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from api.reiay.schemas.roles_schemas import RoleCreate
-from core.models import Role
+from api.core.models import Role
 
 
 async def create_role(

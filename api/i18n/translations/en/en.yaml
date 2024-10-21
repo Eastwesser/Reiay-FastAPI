@@ -1,0 +1,6 @@
+greeting:
+  welcome: "Hi-hi!"
+  hello: "Greetings, how have you been?"
+error:
+  not_found: "Page not found"
+  server_error: "Internal server error"

@@ -3,7 +3,7 @@ from typing import Sequence, Type, Optional
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
 
-from core.models import Chat
+from api.core.models import Chat
 
 
 async def create_chat(

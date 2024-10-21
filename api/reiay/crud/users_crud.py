@@ -10,7 +10,7 @@ from api.reiay.schemas.users_schemas import (
     UserCreate,
     UserUpdate,
 )
-from core.models import User
+from api.core.models import User
 
 
 # CREATE

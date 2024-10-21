@@ -3,8 +3,8 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from api.reiay.crud.users_crud import create_user, get_user_by_username, update_user
 from api.reiay.schemas.users_schemas import UserOut, UserCreate
-from core.db_helper import get_db
-from security import verify_password
+from api.core.db_helper import get_db
+from security.bcrypt import verify_password
 
 router = APIRouter()
 

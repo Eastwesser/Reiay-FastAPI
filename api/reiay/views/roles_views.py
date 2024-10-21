@@ -3,7 +3,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from api.reiay.crud.roles_crud import create_role, get_all_roles
 from api.reiay.schemas.roles_schemas import RoleCreate
-from core.db_helper import get_db
+from api.core.db_helper import get_db
 
 router = APIRouter()
 
