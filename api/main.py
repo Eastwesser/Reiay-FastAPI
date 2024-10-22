@@ -1,23 +1,13 @@
-from fastapi import FastAPI, Request
+from fastapi import FastAPI
 from fastapi.middleware import Middleware
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import sessionmaker
-from starlette.middleware.base import BaseHTTPMiddleware
 
 from api.core.db_helper import engine
-from api.i18n.i18n_helper import set_language, translate
+from api.i18n.i18n_helper import translate
+from api.i18n.middleware import LocaleMiddleware
 from api.reiay.routers.api_routers import api_router
 
-
-class LocaleMiddleware(BaseHTTPMiddleware):
-    async def dispatch(self, request: Request, call_next):
-        language = request.headers.get("Accept-Language", "en").split(",")[0]
-        set_language(language)
-        response = await call_next(request)
-        return response
-
-
-# Инициализация FastAPI с поддержкой middleware для мультиязычности
 app = FastAPI(middleware=[Middleware(LocaleMiddleware)])
 
 
@@ -39,7 +29,7 @@ SessionLocal = sessionmaker(
 app.include_router(
     api_router,
     prefix="/api/reiay",
-    tags=["reiai"],
+    tags=["reiay"],
 )
 
 # Запуск приложения
